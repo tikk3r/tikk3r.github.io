@@ -177,13 +177,15 @@ function init_galaxies() {
 	const color = new THREE.Color();
 
     //get_filesize("https://public.spider.surfsara.nl/project/lofarvwf/dxyz.csv", function(size) {
-    get_filesize("./data/lotss_desi.csv", function(size) {
+    //get_filesize("./data/lotss_desi.csv", function(size) {
+    get_filesize("./data/desirender.csv", function(size) {
         let loadtext = document.querySelector('#loading');
         loadtext.innerHTML = '<p>Loading ' + Math.round(size / 1000000) + ' MB for LoTSS DR2 visualisation (~' + Math.ceil(Math.round(size/1000000) / 12.5) + ' seconds on a 100Mbps connection).</br>Scene initialisation afterwards may take a hot minute.</br>Smoothness depends on your device\'s abilities. For best performance use a system with a dedicated GPU.<br/> Created by Frits Sweijen</p>'
     });
 	
 	//const catalogue = d3.csv('https://public.spider.surfsara.nl/project/lofarvwf/dxyz.csv');
-	const catalogue = d3.csv('./data/lotss_desi.csv');
+	//const catalogue = d3.csv('./data/lotss_desi.csv');
+	const catalogue = d3.csv('./data/desirender.csv');
 	catalogue.then(function (data) {
 			particles = data.length;
 			for (let i = 0; i < data.length; i++) {
