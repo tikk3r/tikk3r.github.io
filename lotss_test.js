@@ -189,8 +189,8 @@ function init_galaxies() {
 			for (let i = 0; i < data.length; i++) {
 				// Y and Z are reversed between our and render coordinates.
 				positions.push(Number(data[i].X * (data[i].D * distanceScaleFactor)));
-				positions.push(Number(data[i].Z * (data[i].D * distanceScaleFactor)));
 				positions.push(Number(data[i].Y * (data[i].D * distanceScaleFactor)));
+				positions.push(Number(data[i].Z * (data[i].D * distanceScaleFactor)));
 				
 				color.setHSL(1.0, 1.0, 1.0);
 				colours.push( color.r, color.g, color.b );
