@@ -59,8 +59,8 @@ let mesh_lofar;
 
 
 let particles = 10000;
-var distanceScaleFactor = 0.25;
-var sizeScaleFactor = 2.0;
+var distanceScaleFactor = 0.1;
+var sizeScaleFactor = 1.0;
 var viewDistance = 10000;
 
 const hour_labels = [];
@@ -204,7 +204,7 @@ function init_lofar_scene() {
 	
 	// Add a light so we can see.
 	var light = new THREE.PointLight(0xffffff, 1, 0);
-	light.position.set(0, 100, 0);
+	light.position.set(0, 10, 0);
 	scene.add(light);
 	
 	renderer = new THREE.WebGLRenderer({logarithmicDepthBuffer:true});
