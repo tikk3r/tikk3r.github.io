@@ -37,9 +37,9 @@ var galGeometry, particleSystem;
 //const positions = [];
 //const sizes = [];
 //const colours = [];
-const positions = new Float32Array(20000000);
-const sizes = new Float32Array(20000000);
-const colours = new Float32Array(20000000);
+const positions = new Float32Array(60000000);
+const sizes = new Float32Array(60000000);
+const colours = new Float32Array(60000000);
 let uniforms = {pointTexture: {value: new THREE.TextureLoader().load('textures/spark1.png')}};	
 	
 const shaderMaterial = new THREE.ShaderMaterial( {
@@ -59,7 +59,7 @@ let mesh_lofar;
 
 
 let particles = 10000;
-var distanceScaleFactor = 1.0;
+var distanceScaleFactor = 0.5;
 var sizeScaleFactor = 2.0;
 var viewDistance = 10000;
 
