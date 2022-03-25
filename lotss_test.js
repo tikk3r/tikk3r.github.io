@@ -59,8 +59,8 @@ let mesh_lofar;
 
 
 let particles = 10000;
-var distanceScaleFactor = 1.0;
-var sizeScaleFactor = 1.0;
+var distanceScaleFactor = 0.5;
+var sizeScaleFactor = 2.5;
 var viewDistance = 10000;
 
 const hour_labels = [];
