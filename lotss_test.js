@@ -233,7 +233,7 @@ setLoadingFinished();
 	//const catalogue = d3.csv('./data/lotss_desi.csv');
 	let first = true;
 	let i = 0;
-	Papa.parse('./data/desirender.csv',{
+	Papa.parse('./data/desirender_zlt0p5.csv',{
 		worker: false,
 		download: true,
 		header: true,
