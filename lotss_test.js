@@ -1,3 +1,11 @@
+import * as THREE from "https://cdn.skypack.dev/three@0.133";
+
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.133/examples/jsm/controls/OrbitControls.js";
+import { SVGLoader } from "https://cdn.skypack.dev/three@0.133/examples/jsm/loaders/SVGLoader.js";
+import { FontLoader } from "https://cdn.skypack.dev/three@0.133/examples/jsm/loaders/FontLoader.js";
+import { VRButton } from 'https://cdn.skypack.dev/three@0.133/examples/jsm/webxr/VRButton.js';
+
+import * as d3 from "https://cdn.skypack.dev/d3@7.3.0";
 // Display loading icon
 const wait = (delay = 0) =>
   new Promise(resolve => setTimeout(resolve, delay));
@@ -23,29 +31,36 @@ observer.observe(document.querySelector('#container'), {
     subtree: true
 });
 
-import * as THREE from "https://cdn.skypack.dev/three@0.133";
-
-import { OrbitControls } from "https://cdn.skypack.dev/three@0.133/examples/jsm/controls/OrbitControls.js";
-import { SVGLoader } from "https://cdn.skypack.dev/three@0.133/examples/jsm/loaders/SVGLoader.js";
-import { FontLoader } from "https://cdn.skypack.dev/three@0.133/examples/jsm/loaders/FontLoader.js";
-import { VRButton } from 'https://cdn.skypack.dev/three@0.133/examples/jsm/webxr/VRButton.js';
-
-import * as CSV from 'https://cdn.jsdelivr.net/npm/@vanillaes/csv@3.0.1/index.js';
-
-import * as d3 from "https://cdn.skypack.dev/d3@7.3.0";
 
 var scene, camera, renderer, controls, gridHelper;
 var galGeometry, particleSystem;
-const positions = [];
-const sizes = [];
-const colours = [];
-let uniforms;
+//const positions = [];
+//const sizes = [];
+//const colours = [];
+const positions = new Float32Array(20000000);
+const sizes = new Float32Array(20000000);
+const colours = new Float32Array(20000000);
+let uniforms = {pointTexture: {value: new THREE.TextureLoader().load('textures/spark1.png')}};	
+	
+const shaderMaterial = new THREE.ShaderMaterial( {
+
+	uniforms: uniforms,
+	vertexShader: document.getElementById( 'vertexshader' ).textContent,
+	fragmentShader: document.getElementById( 'fragmentshader' ).textContent,
+
+	blending: THREE.AdditiveBlending,
+	depthTest: false,
+	transparent: true,
+	vertexColors: true
+
+} );
+
 let mesh_lofar;
 
 
 let particles = 10000;
-var distanceScaleFactor = 0.1;
-var sizeScaleFactor = 1.0;
+var distanceScaleFactor = 1.0;
+var sizeScaleFactor = 2.0;
 var viewDistance = 10000;
 
 const hour_labels = [];
@@ -56,8 +71,33 @@ let clock = new THREE.Clock();
 let delta = 0;
 // 60 fps
 let interval = 1 / 30;
-
 init_lofar_scene();
+
+var glS = new glStats(); // init at any point
+var tS = new threeStats( renderer ); // init after WebGLRenderer is created
+
+var rS = new rStats( {
+	CSSPath: '../css/',
+	values: {
+		frame: { caption: 'Total frame time (ms)', over: 16 },
+		fps: { caption: 'Framerate (FPS)', below: 30 },
+		calls: { caption: 'Calls (three.js)', over: 3000 },
+		raf: { caption: 'Time since last rAF (ms)' },
+		rstats: { caption: 'rStats update (ms)' }
+	},
+	groups: [
+		{ caption: 'Framerate', values: [ 'fps', 'raf' ] },
+		{ caption: 'Frame Budget', values: [ 'frame', 'texture', 'setup', 'render' ] }
+	],
+	fractions: [
+		{ base: 'frame', steps: [ 'render' ] }
+	],
+	plugins: [
+		tS,
+		glS
+	]
+} );
+
 init_galaxies();
 //init_text();
 
@@ -90,10 +130,29 @@ function deg2rad(deg) {
 	return deg * Math.PI / 180;
 }
 
+function add_galaxy(position, shader, size, colour) {
+	galGeometry = new THREE.BufferGeometry();
+	galGeometry.setAttribute('position', new THREE.Float32BufferAttribute(position, 3));
+	if (!(typeof size === 'undefined')) {
+		galGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colour, 3));
+	}
+	if (!(typeof size === 'undefined')) {
+		galGeometry.setAttribute('size', new THREE.Float32BufferAttribute(size, 1).setUsage(THREE.DynamicDrawUsage));
+	}
+    galGeometry.computeBoundingSphere();
+    var material = new THREE.PointsMaterial({
+    size: 0.5,
+    vertexColors: THREE.VertexColors
+    });
+
+	particleSystem = new THREE.Points(galGeometry, shader);
+	scene.add(particleSystem);
+}
+
 function add_galaxies(positions, shader, size, colour) {
 	galGeometry = new THREE.BufferGeometry();
 	galGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-	if (!(typeof size === 'undefined')) {
+	if (!(typeof colour === 'undefined')) {
 		galGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colour, 3));
 	}
 	if (!(typeof size === 'undefined')) {
@@ -112,6 +171,7 @@ function add_galaxies(positions, shader, size, colour) {
 function setLoadingFinished() {
 	const container = document.getElementById('container');
 	container.appendChild(renderer.domElement);
+	add_galaxies(positions, shaderMaterial, sizes, colours);
 	document.body.appendChild( VRButton.createButton( renderer ) );
     document.getElementById('loading').remove();
 	animate();
@@ -139,12 +199,12 @@ function init_lofar_scene() {
 	mesh_lofar.renderOrder = -1;
 	scene.add(mesh_lofar);
 	
-	//gridHelper = new THREE.PolarGridHelper(50, 24);
-	//scene.add(gridHelper);
+	gridHelper = new THREE.PolarGridHelper(50, 24);
+	scene.add(gridHelper);
 	
 	// Add a light so we can see.
 	var light = new THREE.PointLight(0xffffff, 1, 0);
-	light.position.set(0, 10, 0);
+	light.position.set(0, 100, 0);
 	scene.add(light);
 	
 	renderer = new THREE.WebGLRenderer({logarithmicDepthBuffer:true});
@@ -158,36 +218,64 @@ function init_lofar_scene() {
 	controls = new OrbitControls(camera, renderer.domElement);
 }
 
+
 function init_galaxies() {
-	uniforms = {pointTexture: {value: new THREE.TextureLoader().load('textures/spark1.png')}};	
 	
-	const shaderMaterial = new THREE.ShaderMaterial( {
-
-		uniforms: uniforms,
-		vertexShader: document.getElementById( 'vertexshader' ).textContent,
-		fragmentShader: document.getElementById( 'fragmentshader' ).textContent,
-
-		blending: THREE.AdditiveBlending,
-		depthTest: false,
-		transparent: true,
-		vertexColors: true
-
-	} );
-
-	const color = new THREE.Color();
-
-    //get_filesize("https://public.spider.surfsara.nl/project/lofarvwf/dxyz.csv", function(size) {
-    //get_filesize("./data/lotss_desi.csv", function(size) {
-    get_filesize("./data/desirender.csv", function(size) {
+setLoadingFinished();
+    //get_filesize("./data/dxyz.csv", function(size) {
+    /*get_filesize("./data/lotss_desi.csv", function(size) {
+	//get_filesize("./data/desirender.csv", function(size) {
         let loadtext = document.querySelector('#loading');
         loadtext.innerHTML = '<p>Loading ' + Math.round(size / 1000000) + ' MB for LoTSS DR2 visualisation (~' + Math.ceil(Math.round(size/1000000) / 12.5) + ' seconds on a 100Mbps connection).</br>Scene initialisation afterwards may take a hot minute.</br>Smoothness depends on your device\'s abilities. For best performance use a system with a dedicated GPU.<br/> Created by Frits Sweijen</p>'
-    });
+    });*/
 	
-	//const catalogue = d3.csv('https://public.spider.surfsara.nl/project/lofarvwf/dxyz.csv');
+	//const catalogue = d3.csv('./data/dxyz.csv');
 	//const catalogue = d3.csv('./data/lotss_desi.csv');
-	const catalogue = d3.csv('./data/desirender.csv');
+	let first = true;
+	let i = 0;
+	Papa.parse('./data/desirender.csv',{
+		worker: false,
+		download: true,
+		header: true,
+		step: function(row, parser){
+				//console.log(row.data);
+				let color = new THREE.Color();
+				if (isNaN(row.data.X) || isNaN(row.data.Y) || isNaN(row.data.Z)){
+					console.log('NaN point detected');
+				} else if (row.data.D > 500){
+					//source is too far away.
+				} else {
+					// Y and Z are reversed between our and render coordinates.
+					positions[i] = Number(row.data.X * (row.data.D * distanceScaleFactor));
+					positions[i+1] = Number(row.data.Z * (row.data.D * distanceScaleFactor));
+					positions[i+2] = Number(row.data.Y * (row.data.D * distanceScaleFactor));
+					color.setHSL(1.0, 1.0, 1.0);
+					colours[i] = color.r;
+					colours[i+1] = color.g;
+					colours[i+2] = color.b;
+					sizes[i] = 1.0;
+					
+
+					i = i + 3;
+					if (i >= 3500000 && first == true) {
+						setLoadingFinished();
+						first = false;
+					}
+				}
+				//if ((i > 99999) && (i % 333 == 0)) {
+				//	console.log(i);
+				//}
+		},
+		complete: function(results, file) {
+			console.log('Finished loading data.');
+			
+		}
+	});
+	/*const catalogue = d3.csv('./data/desirender.csv');
 	catalogue.then(function (data) {
+			console.log(7897987987);
 			particles = data.length;
+			console.log(particles);
 			for (let i = 0; i < data.length; i++) {
 				// Y and Z are reversed between our and render coordinates.
 				positions.push(Number(data[i].X * (data[i].D * distanceScaleFactor)));
@@ -198,11 +286,13 @@ function init_galaxies() {
 				colours.push( color.r, color.g, color.b );
 				sizes.push(1.0);
 			}
-			add_galaxies(positions, shaderMaterial, sizes, colours);
+			if (i > 100) {
 			console.log(data.length);
 			window.addEventListener('resize', onWindowResize);
 			setLoadingFinished();
-		});
+			return;
+			}
+		});*/
 }
 
 function init_text( ) {
@@ -282,30 +372,6 @@ function animate() {
 	}
 }
 
-var glS = new glStats(); // init at any point
-var tS = new threeStats( renderer ); // init after WebGLRenderer is created
-
-var rS = new rStats( {
-    values: {
-        frame: { caption: 'Total frame time (ms)', over: 16 },
-        fps: { caption: 'Framerate (FPS)', below: 30 },
-        calls: { caption: 'Calls (three.js)', over: 3000 },
-        raf: { caption: 'Time since last rAF (ms)' },
-        rstats: { caption: 'rStats update (ms)' }
-    },
-    groups: [
-        { caption: 'Framerate', values: [ 'fps', 'raf' ] },
-        { caption: 'Frame Budget', values: [ 'frame', 'texture', 'setup', 'render' ] }
-    ],
-    fractions: [
-        { base: 'frame', steps: [ 'UpdateGeometry', 'render' ] }
-    ],
-    plugins: [
-        tS,
-        glS
-    ]
-} );
-
 function render() {
     rS( 'frame' ).start();
     glS.start();
@@ -334,13 +400,6 @@ function render() {
 			//tgeometry.lookAt(new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z));
 		}
 	}
-    rS( 'UpdateGeometry' ).start();
-	//const sizes = galGeometry.attributes.size.array;
-	//for (let j = 0; j < particles; j++ ) {
-	//	sizes[j] = 1.0 * ( sizes[j] + 0.025 * Math.sin( 0.1 * j + time ) );
-	//}
-	//galGeometry.attributes.size.needsUpdate = true;
-    rS( 'UpdateGeometry' ).end();
 
 	if (capturing) {
 		capturer.capture(renderer.domElement);
