@@ -59,7 +59,7 @@ let mesh_lofar;
 
 
 let particles = 10000;
-var distanceScaleFactor = 0.5;
+var distanceScaleFactor = 0.25;
 var sizeScaleFactor = 2.0;
 var viewDistance = 10000;
 
