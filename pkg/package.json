@@ -8,13 +8,11 @@
   "files": [
     "wasm_demo_bg.wasm",
     "wasm_demo.js",
-    "wasm_demo_bg.js",
     "wasm_demo.d.ts"
   ],
   "main": "wasm_demo.js",
   "types": "wasm_demo.d.ts",
   "sideEffects": [
-    "./wasm_demo.js",
     "./snippets/*"
   ]
 }

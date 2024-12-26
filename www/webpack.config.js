@@ -12,3 +12,10 @@ module.exports = {
     new CopyWebpackPlugin(['index.html'])
   ],
 };
+
+  loaders: [
+    {
+      test: /\.wasm$/,
+      loaders: ['wasm-loader']
+    }
+  ]
