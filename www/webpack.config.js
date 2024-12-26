@@ -11,11 +11,12 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin(['index.html'])
   ],
+  module: {
+    rules: [
+      { test: /\.css$/, use: 'css-loader' },
+      { test: /\.ts$/, use: 'ts-loader' },
+      { test: /\.wasm$/, use: 'wasm-loader'},
+    ],
+  },
 };
 
-  loaders: [
-    {
-      test: /\.wasm$/,
-      loaders: ['wasm-loader']
-    }
-  ]
