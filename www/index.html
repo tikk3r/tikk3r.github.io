@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Plotters WebAssembly Demo</title>
+	<link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
+        <script src="./bootstrap.js"></script>
+	<main>
+	    <div id="control">
+			<label for="plot-type">Demo: </label>
+			<select id="plot-type" style="width: 100%;">
+				<option value="interferometer-monochrome">Monochromatic interferometer</option>
+				<option value="interferometer-uvcoverage">LOFAR UV coverage</option>
+				<option value="mandelbrot">Mandelbrot Set</option>
+			</select>
+			<div id="interferometer-control" class="hide">
+				<label for="baseline">Baseline length: </label> <input type="range" min="10" max="500" id="baseline" value="100"> <br/>
+				<label for="pbeam">Primary beam width: </label> <input type="range" min="1" max="100" id="pbeam" value="100"> <br/>
+			</div>
+			<div id="uvcov-control" class="hide">
+				<label for="declination" id="label_dec">Observing declination: </label>
+                    <br/><input type="range" min="-10" max="90" id="declination" value="58" step=1> <br/>
+                    <label for="phi" id="label_time">Time into observation: </label> <br/> <input type="range" min="0" max="480" id="phi" value="240" step="1"> <br/>
+                    <label for="time_channels" id="label_ntimes">Number of time slots: </label> <br/> <input type="range" min="1" max="10" id="time_channels" value="1" step="1"> <br/>
+                    <label for="frequency" id="label_freq">Observing frequency: </label> <br/> <input type="range" min="120" max="168" id="frequency" value="144"> <br/>
+                    <label for="frequency_channels" id="label_bandwidth">Number of channels: </label> <br/> <input type="range" min="1" max="10" id="frequency_channels" value="1" step="1"> <br/>
+			</div>
+        <div id="status">Loading WebAssembly...</div>
+	    </div>
+        <div id="coord" class="hide"></div>
+        <canvas id="canvas" width="950" height="950"></canvas>
+	</main>
+	<footer>
+	    <a href="https://github.com/plotters-rs/plotters-wasm-demo" target="a">Source</a> |
+	    <a href="https://github.com/plotters-rs/plotters" target="a">Repo</a> |
+	    <a href="https://crates.io/crates/plotters" target="a">Crates</a> |
+	    <a href="https://docs.rs/plotters" target="a">Docs</a>
+	</footer>
+    </body>
+</html>
