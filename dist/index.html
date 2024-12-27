@@ -14,7 +14,7 @@
 			<label for="plot-type">Demo: </label>
 			<select id="plot-type" style="width: 100%;">
 				<option value="interferometer-monochrome">Monochromatic interferometer</option>
-				<option value="interferometer-uvcoverage">LOFAR UV coverage</option>
+				<option value="interferometer-uvcoverage">UV coverage</option>
 				<option value="mandelbrot">Mandelbrot Set</option>
 			</select>
 			<div id="interferometer-control" class="hide">
@@ -24,10 +24,26 @@
 			<div id="uvcov-control" class="hide">
 				<label for="declination" id="label_dec">Observing declination: </label>
                     <br/><input type="range" min="-10" max="90" id="declination" value="58" step=1> <br/>
+                    <label for="duration" id="label_itime">Integration time: </label> <br/> <input type="range" min="1" max="480" id="duration" value="10" step="1"> <br/>
+
                     <label for="phi" id="label_time">Time into observation: </label> <br/> <input type="range" min="0" max="480" id="phi" value="240" step="1"> <br/>
-                    <label for="time_channels" id="label_ntimes">Number of time slots: </label> <br/> <input type="range" min="1" max="10" id="time_channels" value="1" step="1"> <br/>
+
+                    <label for="time_channels" id="label_ntimes">Number of time slots: </label> <br/> <input type="range" min="1" max="100" id="time_channels" value="1" step="1"> <br/>
+
                     <label for="frequency" id="label_freq">Observing frequency: </label> <br/> <input type="range" min="120" max="168" id="frequency" value="144"> <br/>
+
                     <label for="frequency_channels" id="label_bandwidth">Number of channels: </label> <br/> <input type="range" min="1" max="10" id="frequency_channels" value="1" step="1"> <br/>
+
+                    <label for="zoom">Zoom level</label> <br/> <input type="range" min="0" max="4" id="zoom_level" value="0" step="0.1"> <br/>
+                    <fieldset>
+                        <legend>Telescope array:</legend>
+                        <form id="array_selector">
+                        <input type="radio" id="array_lofar" name="array" checked/>
+                        <label for="array_lofar">LOFAR</label></br>
+                        <input type="radio" id="array_emerlin" name="array"/>
+                        <label for="array_emerlin">e-MERLIN</label>
+                        </form>
+                    </fieldset>
 			</div>
         <div id="status">Loading WebAssembly...</div>
 	    </div>
