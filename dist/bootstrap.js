@@ -55,158 +55,26 @@
 /******/ 		"../pkg/wasm_demo_bg.wasm": function() {
 /******/ 			return {
 /******/ 				"./wasm_demo_bg.js": {
-/******/ 					"__wbg_beginPath_18ab569e70788cc1": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_beginPath_18ab569e70788cc1"](p0i32);
+/******/ 					"__wbindgen_memory": function() {
+/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbindgen_memory"]();
 /******/ 					},
-/******/ 					"__wbg_setstrokeStyle_b0ba63182729d0b2": function(p0i32,p1i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_setstrokeStyle_b0ba63182729d0b2"](p0i32,p1i32);
+/******/ 					"__wbg_length_65d1cd11729ced11": function(p0i32) {
+/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_length_65d1cd11729ced11"](p0i32);
+/******/ 					},
+/******/ 					"__wbg_buffer_61b7ce01341d7f88": function(p0i32) {
+/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_buffer_61b7ce01341d7f88"](p0i32);
+/******/ 					},
+/******/ 					"__wbg_new_3ff5b33b1ce712df": function(p0i32) {
+/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_new_3ff5b33b1ce712df"](p0i32);
 /******/ 					},
 /******/ 					"__wbindgen_object_drop_ref": function(p0i32) {
 /******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbindgen_object_drop_ref"](p0i32);
 /******/ 					},
-/******/ 					"__wbg_moveTo_3069b186b2004933": function(p0i32,p1f64,p2f64) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_moveTo_3069b186b2004933"](p0i32,p1f64,p2f64);
-/******/ 					},
-/******/ 					"__wbg_lineTo_1321b7a30d82f376": function(p0i32,p1f64,p2f64) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_lineTo_1321b7a30d82f376"](p0i32,p1f64,p2f64);
-/******/ 					},
-/******/ 					"__wbg_stroke_0feb24d5e9f9c915": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_stroke_0feb24d5e9f9c915"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_setfillStyle_d54008d1e987d58a": function(p0i32,p1i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_setfillStyle_d54008d1e987d58a"](p0i32,p1i32);
-/******/ 					},
-/******/ 					"__wbg_arc_5886b4a1c9f0a8ed": function(p0i32,p1f64,p2f64,p3f64,p4f64,p5f64) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_arc_5886b4a1c9f0a8ed"](p0i32,p1f64,p2f64,p3f64,p4f64,p5f64);
-/******/ 					},
-/******/ 					"__wbg_fill_d04621325e9c029b": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_fill_d04621325e9c029b"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_setlineWidth_03305d3599ca8adb": function(p0i32,p1f64) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_setlineWidth_03305d3599ca8adb"](p0i32,p1f64);
-/******/ 					},
-/******/ 					"__wbg_save_2f42b396c1a97535": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_save_2f42b396c1a97535"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_translate_fe29257d3c848e84": function(p0i32,p1f64,p2f64) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_translate_fe29257d3c848e84"](p0i32,p1f64,p2f64);
-/******/ 					},
-/******/ 					"__wbg_rotate_cc1d01a911380d03": function(p0i32,p1f64) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_rotate_cc1d01a911380d03"](p0i32,p1f64);
-/******/ 					},
-/******/ 					"__wbg_settextBaseline_33dcd187fb0bc648": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_settextBaseline_33dcd187fb0bc648"](p0i32,p1i32,p2i32);
-/******/ 					},
-/******/ 					"__wbg_settextAlign_13ad1c3f136337a6": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_settextAlign_13ad1c3f136337a6"](p0i32,p1i32,p2i32);
-/******/ 					},
-/******/ 					"__wbg_setfont_b3126b9131bc56b4": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_setfont_b3126b9131bc56b4"](p0i32,p1i32,p2i32);
-/******/ 					},
-/******/ 					"__wbg_fillText_f7c6f84859022688": function(p0i32,p1i32,p2i32,p3f64,p4f64) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_fillText_f7c6f84859022688"](p0i32,p1i32,p2i32,p3f64,p4f64);
-/******/ 					},
-/******/ 					"__wbg_restore_9ac3ed45c09936ff": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_restore_9ac3ed45c09936ff"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_static_accessor_GLOBAL_THIS_1a6eb482d12c9bfb": function() {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_static_accessor_GLOBAL_THIS_1a6eb482d12c9bfb"]();
-/******/ 					},
-/******/ 					"__wbg_static_accessor_WINDOW_ae1c80c7eea8d64a": function() {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_static_accessor_WINDOW_ae1c80c7eea8d64a"]();
-/******/ 					},
-/******/ 					"__wbindgen_object_clone_ref": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbindgen_object_clone_ref"](p0i32);
-/******/ 					},
-/******/ 					"__wbindgen_is_undefined": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbindgen_is_undefined"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_newnoargs_fd9e4bf8be2bc16d": function(p0i32,p1i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_newnoargs_fd9e4bf8be2bc16d"](p0i32,p1i32);
-/******/ 					},
-/******/ 					"__wbg_call_b0d8e36992d9900d": function(p0i32,p1i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_call_b0d8e36992d9900d"](p0i32,p1i32);
-/******/ 					},
-/******/ 					"__wbg_static_accessor_GLOBAL_0be7472e492ad3e3": function() {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_static_accessor_GLOBAL_0be7472e492ad3e3"]();
-/******/ 					},
-/******/ 					"__wbg_static_accessor_SELF_1dc398a895c82351": function() {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_static_accessor_SELF_1dc398a895c82351"]();
-/******/ 					},
-/******/ 					"__wbg_instanceof_Window_d2514c6a7ee7ba60": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_instanceof_Window_d2514c6a7ee7ba60"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_document_f11bc4f7c03e1745": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_document_f11bc4f7c03e1745"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_body_8d7d8c4aa91dcad8": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_body_8d7d8c4aa91dcad8"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_createElement_89923fcb809656b7": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_createElement_89923fcb809656b7"](p0i32,p1i32,p2i32);
-/******/ 					},
-/******/ 					"__wbg_settextContent_0eab7fce6c07d5c9": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_settextContent_0eab7fce6c07d5c9"](p0i32,p1i32,p2i32);
-/******/ 					},
-/******/ 					"__wbg_setAttribute_148e0e65e20e5f27": function(p0i32,p1i32,p2i32,p3i32,p4i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_setAttribute_148e0e65e20e5f27"](p0i32,p1i32,p2i32,p3i32,p4i32);
-/******/ 					},
-/******/ 					"__wbg_append_e4116d7166395109": function(p0i32,p1i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_append_e4116d7166395109"](p0i32,p1i32);
-/******/ 					},
-/******/ 					"__wbg_instanceof_HtmlElement_d94ed69c6883a691": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_instanceof_HtmlElement_d94ed69c6883a691"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_offsetHeight_fd6bd1cef9ee2d02": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_offsetHeight_fd6bd1cef9ee2d02"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_offsetWidth_8550d6d56c0b93ed": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_offsetWidth_8550d6d56c0b93ed"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_remove_530b4f3163f72a83": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_remove_530b4f3163f72a83"](p0i32);
-/******/ 					},
-/******/ 					"__wbindgen_debug_string": function(p0i32,p1i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbindgen_debug_string"](p0i32,p1i32);
-/******/ 					},
-/******/ 					"__wbg_stringify_f4f701bc34ceda61": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_stringify_f4f701bc34ceda61"](p0i32);
-/******/ 					},
-/******/ 					"__wbindgen_string_get": function(p0i32,p1i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbindgen_string_get"](p0i32,p1i32);
-/******/ 					},
-/******/ 					"__wbg_getElementById_dcc9f1f3cfdca0bc": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_getElementById_dcc9f1f3cfdca0bc"](p0i32,p1i32,p2i32);
-/******/ 					},
-/******/ 					"__wbg_instanceof_HtmlCanvasElement_f764441ef5ddb63f": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_instanceof_HtmlCanvasElement_f764441ef5ddb63f"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_getContext_5eaf5645cd6acb46": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_getContext_5eaf5645cd6acb46"](p0i32,p1i32,p2i32);
-/******/ 					},
-/******/ 					"__wbg_instanceof_CanvasRenderingContext2d_23b21317d73228be": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_instanceof_CanvasRenderingContext2d_23b21317d73228be"](p0i32);
-/******/ 					},
-/******/ 					"__wbindgen_string_new": function(p0i32,p1i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbindgen_string_new"](p0i32,p1i32);
+/******/ 					"__wbg_set_23d69db4e5c66a6e": function(p0i32,p1i32,p2i32) {
+/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_set_23d69db4e5c66a6e"](p0i32,p1i32,p2i32);
 /******/ 					},
 /******/ 					"__wbindgen_throw": function(p0i32,p1i32) {
 /******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbindgen_throw"](p0i32,p1i32);
-/******/ 					},
-/******/ 					"__wbg_fillRect_d17933580f17fcb0": function(p0i32,p1f64,p2f64,p3f64,p4f64) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_fillRect_d17933580f17fcb0"](p0i32,p1f64,p2f64,p3f64,p4f64);
-/******/ 					},
-/******/ 					"__wbg_closePath_f2b82479f22f3aa3": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_closePath_f2b82479f22f3aa3"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_strokeRect_c0e5c5fa8ee05935": function(p0i32,p1f64,p2f64,p3f64,p4f64) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_strokeRect_c0e5c5fa8ee05935"](p0i32,p1f64,p2f64,p3f64,p4f64);
-/******/ 					},
-/******/ 					"__wbg_width_9927e6a7adb23d6d": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_width_9927e6a7adb23d6d"](p0i32);
-/******/ 					},
-/******/ 					"__wbg_height_f36c36e27347cf38": function(p0i32) {
-/******/ 						return installedModules["../pkg/wasm_demo_bg.js"].exports["__wbg_height_f36c36e27347cf38"](p0i32);
 /******/ 					}
 /******/ 				}
 /******/ 			};
@@ -309,7 +177,7 @@
 /******/ 				promises.push(installedWasmModuleData);
 /******/ 			else {
 /******/ 				var importObject = wasmImportObjects[wasmModuleId]();
-/******/ 				var req = fetch(__webpack_require__.p + "" + {"../pkg/wasm_demo_bg.wasm":"0f96c3a291b489fff6e6"}[wasmModuleId] + ".module.wasm");
+/******/ 				var req = fetch(__webpack_require__.p + "" + {"../pkg/wasm_demo_bg.wasm":"d7fd051c414b8354ea41"}[wasmModuleId] + ".module.wasm");
 /******/ 				var promise;
 /******/ 				if(importObject instanceof Promise && typeof WebAssembly.compileStreaming === 'function') {
 /******/ 					promise = Promise.all([WebAssembly.compileStreaming(req), importObject]).then(function(items) {
@@ -410,7 +278,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("/* WEBPACK VAR INJECTION */(function(process) {init();\n\nasync function init() {\n    if (typeof process == \"object\") {\n        // We run in the npm/webpack environment.\n        const [{Chart}, {main, setup}] = await Promise.all([\n            __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! wasm-demo */ \"../pkg/wasm_demo.js\")),\n            __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./index.js */ \"./index.js\")),\n        ]);\n        setup(Chart);\n        main();\n    } else {\n        const [{Chart, default: init}, {main, setup}] = await Promise.all([\n            __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../pkg/wasm_demo.js */ \"../pkg/wasm_demo.js\")),\n            __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./index.js */ \"./index.js\")),\n        ]);\n        await init();\n        setup(Chart);\n        main();\n    }\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/process/browser.js */ \"./node_modules/process/browser.js\")))\n\n//# sourceURL=webpack:///./bootstrap.js?");
+eval("/* WEBPACK VAR INJECTION */(function(process) {init();\n\nasync function init() {\n    if (typeof process == \"object\") {\n        // We run in the npm/webpack environment.\n        const [{Chart}, {main, setup}] = await Promise.all([\n            __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! wasm-demo */ \"../pkg/wasm_demo.js\")),\n            Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./index.js */ \"./index.js\")),\n        ]);\n        setup(Chart);\n        main();\n    } else {\n        const [{Chart, default: init}, {main, setup}] = await Promise.all([\n            __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../pkg/wasm_demo.js */ \"../pkg/wasm_demo.js\")),\n            Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./index.js */ \"./index.js\")),\n        ]);\n        await init();\n        setup(Chart);\n        main();\n    }\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/process/browser.js */ \"./node_modules/process/browser.js\")))\n\n//# sourceURL=webpack:///./bootstrap.js?");
 
 /***/ }),
 
