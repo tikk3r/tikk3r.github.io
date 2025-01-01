@@ -44,6 +44,13 @@ body > * {
     columns: 2;
 }
 
+#radiolist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    columns: 2;
+}
+
 #status {
     color: grey;
 }

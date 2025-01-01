@@ -7,21 +7,29 @@
         <link rel="stylesheet" href="./style2.css">
         <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
         <script src="./bootstrap.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/7.6.0/math.min.js"></script>
-        <script src="https://unpkg.com/d3"></script>
+        <script src="https://unpkg.com/d3" charset="utf-8"></script>
         <script src="https://unpkg.com/d3fc"></script>
     </head>
     <body>
         <div style="align-items: center; min-width: 540px; max-width: 540px;">
             <h1 style="text-align: center;">Wasm Accelerated Toy Interferometer</h1>
             <div id="antenna-control" style="float: left; min-width: 280px; max-width: 280px;">
-                <fieldset>
+                <fieldset style="float: left;">
                     <legend>Telescope array:</legend>
                     <form id="array_selector">
-                    <input type="radio" id="array_lofar" name="array" checked/>
-                    <label for="array_lofar">LOFAR</label></br>
-                    <input type="radio" id="array_emerlin" name="array"/>
-                    <label for="array_emerlin">e-MERLIN</label></br>
+                        <input type="radio" id="array_lofar" name="array" checked/>
+                        <label for="array_lofar">LOFAR</label></br>
+                        <input type="radio" id="array_emerlin" name="array"/>
+                        <label for="array_emerlin">e-MERLIN</label></br>
+                    </form>
+                </fieldset>
+                <fieldset id="freqbands" style="float: left;">
+                    <legend>Observing band:</legend>
+                    <form id="band_selector">
+                        <input type="radio" id="LBA" name="band"/>
+                        <label for="LBA">LBA</label></br>
+                        <input type="radio" id="HBA" name="band"/>
+                        <label for="HBA">HBA</label></br>
                     </form>
                 </fieldset>
                 <fieldset id="antennas">
@@ -43,6 +51,7 @@
                         <input type="checkbox" id="checkbox_colour_by_freq"><label>Colour by frequency</label><br/>
                         <br/>
                         <input style="width: 100%;" class="button" type="reset" id="btn_reset_sim">
+                        <input style="width: 100%;" class="button" type="button" id="btn_save_img" value="Save to PNG">
                     </div>
                     <br/>
                 </fieldset>
