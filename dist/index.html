@@ -40,10 +40,16 @@
                 <fieldset>
                     <legend>Controls</legend>
                     <div id="uvcov-control">
+                        <input type="number" name="inp_day" id="inp_day" style="width: 25%;" min="1" max="31" value="10">
+                        <input type="number" name="inp_month" id="inp_month" style="width: 25%;" min="1" max="12" value="11">
+                        <input type="number" name="inp_year" id="inp_year" style="width: 25%;" value="2025">
+                        <br/>
+                        <label for="rightascension" id="label_ra">Observing right ascension: </label>
+                        <br/><input type="range" min="0" max="360" id="rightascension" value="161.75" step=1> <br/>
                         <label for="declination" id="label_dec">Observing declination: </label>
                         <br/><input type="range" min="-90" max="90" id="declination" value="58" step=1> <br/>
                         <label for="duration" id="label_itime">Integration time: </label> <br/> <input type="range" min="1" max="720" id="duration" value="480" step="1"> <br/>
-                        <label for="phi" id="label_time">Offset from noon:</label> <br/> <input type="range" min="0" max="720" id="phi" value="120" step="1"> <br/>
+                        <label for="phi" id="label_time">Observation start:</label> <br/> <input type="range" min="0" max="240" id="phi" value="120" step="1"> <br/>
                         <label for="time_channels" id="label_ntimes">Number of time samples: </label> <br/> <input type="range" min="1" max="100" id="time_channels" value="3" step="1"> <br/>
                         <label for="frequency" id="label_freq">Observing frequency: </label> <br/> <input type="range" min="10" max="168" id="frequency" value="144"> <br/>
                         <label for="frequency_channels" id="label_bandwidth">Number of channels: </label> <br/> <input type="range" min="1" max="10" id="frequency_channels" value="1" step="1"> <br/>
